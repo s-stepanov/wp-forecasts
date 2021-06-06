@@ -1,0 +1,29 @@
+{
+  "name": "validate-csv",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "keywords": [],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint",
+    "start": "functions-framework --target=main",
+    "watch": "nodemon --exec npm run start\"",
+    "fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "gts": "^3.1.0",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "^5.5.0",
+    "@google-cloud/functions-framework": "^1.7.1",
+    "@google-cloud/storage": "^5.8.3",
+    "axios": "^0.21.1",
+    "csv-parse": "^4.15.4",
+    "dayjs": "^1.10.4",
+    "google-auth-library": "^7.0.4",
+    "wkt": "^0.1.1"
+  }
+}

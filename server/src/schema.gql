@@ -1,0 +1,21 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Prediction {
+  name: String!
+  dataLocation: String!
+}
+
+type Query {
+  predictions: [Prediction!]!
+}
+
+type Mutation {
+  createPrediction(predictionPayload: PredictionPayload!): Prediction!
+}
+
+input PredictionPayload {
+  analysisName: String!
+  csvPath: String!
+}
