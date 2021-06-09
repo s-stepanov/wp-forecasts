@@ -13,5 +13,10 @@ generator client {
 model Prediction {
   name         String   @id
   dataLocation String
+  latitude     Float?
+  longitude    Float?
+  model        String?
+  windFarm     String?
+  sourceData   String?
   createdAt    DateTime @default(now())
 }

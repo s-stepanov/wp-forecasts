@@ -1,5 +1,8 @@
 import { HttpService, Injectable } from '@nestjs/common';
-import { Prediction, PredictionPayload } from './prediction';
+import {
+  Prediction,
+  PredictionPayload as PredictionPayload,
+} from './prediction';
 import { map } from 'rxjs/operators';
 import { PrismaService } from 'src/prisma.service';
 
@@ -19,7 +22,8 @@ export class PredictionsService {
   }
 
   async createPrediction(data: PredictionPayload): Promise<Prediction> {
-    const { csvPath, analysisName } = data;
+    const { csvPath, analysisName, latitude, longitude, model, windFarm } =
+      data;
 
     const result = await this.httpService
       .post(PREDICT_CLOUD_FUNCTION_URL, {
@@ -30,7 +34,14 @@ export class PredictionsService {
       .toPromise();
 
     const savedPrediction = await this.prismaService.prediction.create({
-      data: result,
+      data: {
+        ...result,
+        sourceData: data.csvPath,
+        latitude,
+        longitude,
+        model,
+        windFarm,
+      },
     });
 
     return savedPrediction;

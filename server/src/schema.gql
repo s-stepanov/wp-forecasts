@@ -5,6 +5,11 @@
 type Prediction {
   name: String!
   dataLocation: String!
+  latitude: Float
+  longitude: Float
+  model: String
+  sourceData: String
+  windFarm: String
 }
 
 type Query {
@@ -17,5 +22,9 @@ type Mutation {
 
 input PredictionPayload {
   analysisName: String!
+  latitude: Float
+  longitude: Float
+  model: String!
+  windFarm: String
   csvPath: String!
 }

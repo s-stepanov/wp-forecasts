@@ -54,7 +54,7 @@ export default function DetailedPrediction({ activePrediction }: DetailedPredict
     <Box className={classes.root}>
       <Typography variant='h5'>{activePrediction.name}</Typography>
       <Box className={classes.farmData}>
-        <WindFarmData></WindFarmData>
+        <WindFarmData prediction={activePrediction}></WindFarmData>
       </Box>
       <Box className={classes.chart}>{data.length ? <PredictionChart chartData={data}></PredictionChart> : null}</Box>
     </Box>
